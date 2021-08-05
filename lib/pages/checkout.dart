@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/pages/settings.dart';
 
 class Checkout extends StatefulWidget {
   const Checkout({Key? key}) : super(key: key);
