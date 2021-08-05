@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/custom_Widget/item.dart';
 
 class History extends StatefulWidget {
   const History({Key? key}) : super(key: key);
@@ -16,9 +17,8 @@ class _HistoryState extends State<History> {
           child: Text('History          '),
         ),
       ),
-      body: SafeArea (
-        child: Text('THIS IS ALL YOUR ITEMS YOU HAVE CHECKED OUT (finished buying)'),
-      ),
+      body: Item(
+          <String>["Item_1", "Item_2", "Hala"], <String>["20", "30", "45"]),
     );
   }
 }
