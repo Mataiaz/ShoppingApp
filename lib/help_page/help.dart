@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'support_card.dart';
 import 'support.dart';
+import 'package:shopping_app/pages/settings.dart';
 
 class Help extends StatefulWidget {
 
