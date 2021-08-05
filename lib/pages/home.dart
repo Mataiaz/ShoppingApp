@@ -43,6 +43,16 @@ class _HomeState extends State<Home> {
                     Navigator.pushNamed(context, '/help');
                   },
                   icon: Icon(
+                    Icons.help,
+                    color: Colors.yellow,
+                  ),
+                ),
+                SizedBox (height: 80),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/settings');
+                  },
+                  icon: Icon(
                     Icons.settings,
                     color: Colors.green,
                   ),
