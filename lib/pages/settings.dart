@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
-  const Settings({Key? key}) : super(key: key);
+  get isNightMode => false;
+
+
+  //final bool? isNightMode;
+
+  //Settings({@required this.isNightMode});
 
   @override
   _SettingsState createState() => _SettingsState();
@@ -9,10 +14,11 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
 
-  bool isNightMode = false;
+  static bool isNightMode = true;
 
   @override
   Widget build(BuildContext context) {
+
 
     Color? bnColor = isNightMode ? Colors.deepPurple[900] : Colors.red;
     Color? bgColor = isNightMode ? Colors.blueGrey[900] : Colors.white;
@@ -28,22 +34,30 @@ class _SettingsState extends State<Settings> {
         backgroundColor: bnColor,
         centerTitle: true,
       ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: 20),
-          Center(
-            child: IconButton(
-                onPressed: () {
-                  setState(() {
-                    isNightMode = !isNightMode;
-                  });
-                  },
-              icon: Icon(Icons.nightlight,
-                color: bnColor,
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 20),
+            IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isNightMode = !isNightMode;
+                    });
+                    },
+                icon: Icon(Icons.nightlight,
+                  color: bnColor,
+                ),
               ),
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context, {
+                    isNightMode = true,
+                  });
+                },
+                icon: Icon(Icons.edit_location),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
