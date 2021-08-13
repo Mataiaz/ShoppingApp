@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class RecipeCard extends StatelessWidget {
-
   final String title;
   final String rating;
   final String cookTime;
@@ -101,13 +100,18 @@ class RecipeCard extends StatelessWidget {
                           ),
                         ),
                         child: OutlinedButton(
-                          onPressed: () {},
-                          child: Icon(Icons.shopping_bag_outlined,
+                          onPressed: () {
+                            buy();
+                          },
+                          child: Icon(
+                            Icons.shopping_bag_outlined,
                             color: Colors.white,
                           ),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                            overlayColor: MaterialStateProperty.all<Color>(Colors.amber),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(Colors.red),
+                            overlayColor:
+                                MaterialStateProperty.all<Color>(Colors.amber),
                           ),
                         ),
                       ),
