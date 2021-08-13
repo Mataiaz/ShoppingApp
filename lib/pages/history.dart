@@ -11,6 +11,11 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
+
+  result () {
+    print('Someone clicked the button');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +30,8 @@ class _HistoryState extends State<History> {
           title: 'My recipe',
           rating: '4.9',
           cookTime: '30 min',
-          thumbnailUrl:
-              'https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360',
+          thumbnailUrl: 'https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360',
+          buy: result,
         ));
   }
 }

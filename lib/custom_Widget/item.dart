@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 class RecipeCard extends StatelessWidget {
+
   final String title;
   final String rating;
   final String cookTime;
   final String thumbnailUrl;
+  final VoidCallback buy;
   RecipeCard({
+    required this.buy,
     required this.title,
     required this.cookTime,
     required this.rating,
@@ -79,6 +82,35 @@ class RecipeCard extends StatelessWidget {
                       ),
                       SizedBox(width: 7),
                       Text(rating),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(5),
+                  margin: EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0),
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(
+                            width: 1,
+                            style: BorderStyle.none,
+                            color: Colors.white,
+                          ),
+                        ),
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Icon(Icons.shopping_bag_outlined,
+                            color: Colors.white,
+                          ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                            overlayColor: MaterialStateProperty.all<Color>(Colors.amber),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
