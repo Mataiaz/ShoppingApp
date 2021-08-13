@@ -33,7 +33,7 @@ class RecipeCard extends StatelessWidget {
         ],
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.35),
+            Colors.grey.withOpacity(0.35),
             BlendMode.multiply,
           ),
           image: NetworkImage(thumbnailUrl),
@@ -48,7 +48,9 @@ class RecipeCard extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  fontSize: 19,
+                  fontSize: 25,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
@@ -91,7 +93,7 @@ class RecipeCard extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.schedule,
-                        color: Colors.yellow,
+                        color: Colors.blue,
                         size: 18,
                       ),
                       SizedBox(width: 7),
