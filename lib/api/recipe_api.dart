@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:shopping_app/api/google_api.dart';
+import 'package:shopping_app/api/recipe_json.dart';
 import 'package:http/http.dart' as http;
 
 class RecipeApi {
@@ -8,7 +8,7 @@ class RecipeApi {
         {"limit": "18", "start": "0", "tag": "list.recipe.popular"});
 
     final response = await http.get(uri, headers: {
-      "x-rapidapi-key": "YOUR API KEY FROM YUMMLY API",
+      "x-rapidapi-key": "a3492685bemsh88446654c4a6a2dp12d616jsnfacd28e48a13",
       "x-rapidapi-host": "yummly2.p.rapidapi.com",
       "useQueryString": "true"
     });

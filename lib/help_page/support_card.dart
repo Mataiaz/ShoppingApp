@@ -1,11 +1,9 @@
 import 'support.dart';
 import 'package:flutter/material.dart';
 
-
 class SupportCard extends StatelessWidget {
-
   final Support support;
-  SupportCard({ required this.support });
+  SupportCard({this.support});
 
   @override
   Widget build(BuildContext context) {

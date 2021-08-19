@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/pages/NavigationDrawerWidget.dart';
 import 'package:shopping_app/pages/settings.dart';
-import 'package:shopping_app/custom_Widget/item.dart';
+import 'package:shopping_app/custom_Widget/recipe_card.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key key}) : super(key: key);
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  Color? bnColor = Settings().isNightMode ? Colors.deepPurple[900] : Colors.red;
-  Color? bgColor = Settings().isNightMode ? Colors.blueGrey[900] : Colors.white;
-  Color? txColor = Settings().isNightMode ? Colors.black : Colors.red;
+  Color bnColor = Settings().isNightMode ? Colors.deepPurple[900] : Colors.red;
+  Color bgColor = Settings().isNightMode ? Colors.blueGrey[900] : Colors.white;
+  Color txColor = Settings().isNightMode ? Colors.black : Colors.red;
 
   result() {
     print('Someone clicked the button');

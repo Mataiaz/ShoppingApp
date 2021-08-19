@@ -6,11 +6,7 @@ class Recipe {
   final double rating;
   final String totalTime;
 
-  Recipe(
-      {required this.name,
-      required this.images,
-      required this.rating,
-      required this.totalTime});
+  Recipe({this.name, this.images, this.rating, this.totalTime});
 
   factory Recipe.fromJson(dynamic json) {
     return Recipe(

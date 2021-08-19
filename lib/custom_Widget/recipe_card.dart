@@ -7,11 +7,11 @@ class RecipeCard extends StatelessWidget {
   final String thumbnailUrl;
   final VoidCallback buy;
   RecipeCard({
-    required this.buy,
-    required this.title,
-    required this.cookTime,
-    required this.rating,
-    required this.thumbnailUrl,
+    this.buy,
+    this.title,
+    this.cookTime,
+    this.rating,
+    this.thumbnailUrl,
   });
   @override
   Widget build(BuildContext context) {

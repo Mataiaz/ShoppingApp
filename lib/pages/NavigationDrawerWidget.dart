@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/pages/settings.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {
-
   @override
   _NavigationDrawerWidgetState createState() => _NavigationDrawerWidgetState();
 }
 
 class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
-
-  Color? bnColor = Settings().isNightMode ? Colors.deepPurple[900] : Colors.red;
-  Color? bgColor = Settings().isNightMode ? Colors.blueGrey[900] : Colors.white;
-  Color? txColor = Settings().isNightMode ? Colors.black : Colors.red;
+  Color bnColor = Settings().isNightMode ? Colors.deepPurple[900] : Colors.red;
+  Color bgColor = Settings().isNightMode ? Colors.blueGrey[900] : Colors.white;
+  Color txColor = Settings().isNightMode ? Colors.black : Colors.red;
 
   final padding = EdgeInsets.symmetric(horizontal: 20);
 
@@ -27,12 +25,13 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
               child: Column(
                 children: <Widget>[
                   //Text('SLIDE PANEL',
-                    //style: TextStyle(color: txColor),
-                 // ),
-                  SizedBox (height: 60),
+                  //style: TextStyle(color: txColor),
+                  // ),
+                  SizedBox(height: 60),
                   IconButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/checkout'); //Button > push to location name (location name set in main)
+                      Navigator.pushNamed(context,
+                          '/checkout'); //Button > push to location name (location name set in main)
                     },
                     icon: Icon(
                       Icons.shopping_cart,
@@ -40,7 +39,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                     ),
                   ),
                   Text('Checkout'),
-                  SizedBox (height: 60),
+                  SizedBox(height: 60),
                   IconButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/history');
@@ -51,7 +50,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                     ),
                   ),
                   Text('History'),
-                  SizedBox (height: 80),
+                  SizedBox(height: 80),
                   IconButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/help');
@@ -62,7 +61,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                     ),
                   ),
                   Text('Help'),
-                  SizedBox (height: 60),
+                  SizedBox(height: 60),
                   IconButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/settings');
