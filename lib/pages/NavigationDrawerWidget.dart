@@ -7,9 +7,11 @@ class NavigationDrawerWidget extends StatefulWidget {
 }
 
 class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
-  Color bnColor = Settings().isNightMode ? Colors.deepPurple[900] : Colors.red;
-  Color bgColor = Settings().isNightMode ? Colors.blueGrey[900] : Colors.white;
-  Color txColor = Settings().isNightMode ? Colors.black : Colors.red;
+  Color bnColor =
+      SettingsPhone().isNightMode ? Colors.deepPurple[900] : Colors.red;
+  Color bgColor =
+      SettingsPhone().isNightMode ? Colors.blueGrey[900] : Colors.white;
+  Color txColor = SettingsPhone().isNightMode ? Colors.black : Colors.red;
 
   final padding = EdgeInsets.symmetric(horizontal: 20);
 

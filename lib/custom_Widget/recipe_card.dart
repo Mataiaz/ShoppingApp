@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RecipeCard extends StatelessWidget {
   final String title;
@@ -6,6 +7,21 @@ class RecipeCard extends StatelessWidget {
   final String cookTime;
   final String thumbnailUrl;
   final VoidCallback buy;
+
+  result() {
+    Map<String, dynamic> data = {
+      "title": title,
+      "rating": cookTime,
+      "cookTime": rating,
+      "thumbnailUrl": thumbnailUrl
+    };
+    FirebaseFirestore.instance
+        .collection('public')
+        //.add({'timeStamp': Timestamp.fromDate(DateTime.now())});
+        .add(data);
+    print('Someone clicked the button');
+  }
+
   RecipeCard({
     this.buy,
     this.title,
@@ -101,7 +117,8 @@ class RecipeCard extends StatelessWidget {
                         ),
                         child: OutlinedButton(
                           onPressed: () {
-                            buy();
+                            //buy();
+                            result();
                           },
                           child: Icon(
                             Icons.shopping_bag_outlined,

@@ -17,7 +17,7 @@ void main() async {
       '/': (context) => Loading(),
       '/home': (context) => Home(),
       '/help': (context) => Help(),
-      '/settings': (context) => Settings(),
+      '/settings': (context) => SettingsPhone(),
       '/checkout': (context) => Checkout(),
       '/history': (context) => History(),
     },

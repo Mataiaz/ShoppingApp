@@ -29,7 +29,7 @@ class _HistoryState extends State<History> {
     setState(() {
       _isLoading = false;
     });
-    print(_recipes);
+    //print(_recipes);
   }
 
   result() {
@@ -43,41 +43,41 @@ class _HistoryState extends State<History> {
     //print();
   }
 
+  getDataFromFB() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Text('History          '),
-          ),
+      appBar: AppBar(
+        title: Center(
+          child: Text('History          '),
         ),
-        //body: Item(
-        //    <String>["Item_1", "Item_2", "Hala"], <String>["20", "30", "45"]),
-        //   body: RecipeCard(
-        //     title: 'My recipe',
-        //     rating: '4.9',
-        //     cookTime: '30 min',
-        //     thumbnailUrl:
-        //         'https://lh3.googleusercontent.com/ei5eF1LRFkkcekhjdR_8XgOqgdjpomf-rda_vvh7jIauCgLlEWORINSKMRR6I6iTcxxZL9riJwFqKMvK0ixS0xwnRHGMY4I5Zw=s360',
-        //     buy: result,
-        //   ),
-        //   floatingActionButton: FloatingActionButton(
-        //     onPressed: () => result(),
-        //     child: Icon(Icons.add),
-        //   ),
-        // );
-
-        body: _isLoading
-            ? Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: _recipes.length,
-                itemBuilder: (context, index) {
-                  return RecipeCard(
-                      title: _recipes[index].name,
-                      cookTime: _recipes[index].totalTime,
-                      rating: _recipes[index].rating.toString(),
-                      thumbnailUrl: _recipes[index].images);
-                },
-              ));
+      ),
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection("public").snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Text("No value");
+          }
+          return ListView(
+            children: snapshot.data.docs.map((document) {
+              return Text(document['title']);
+            }).toList(),
+          );
+        },
+      ),
+    );
+    // body: _isLoading
+    //     ? Center(child: CircularProgressIndicator())
+    //     : ListView.builder(
+    //         itemCount: _recipes.length,
+    //         itemBuilder: (context, index) {
+    //           return RecipeCard(
+    //               title: _recipes[index].name,
+    //               cookTime: _recipes[index].totalTime,
+    //               rating: _recipes[index].rating.toString(),
+    //               thumbnailUrl: _recipes[index].images);
+    //         },
+    //       ));
   }
 }

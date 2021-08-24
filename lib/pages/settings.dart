@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Settings extends StatefulWidget {
+class SettingsPhone extends StatefulWidget {
   get isNightMode => false;
 
   //final bool? isNightMode;
@@ -11,7 +11,7 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsState extends State<SettingsPhone> {
   static bool isNightMode = true;
 
   @override
