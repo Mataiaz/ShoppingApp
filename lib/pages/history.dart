@@ -21,7 +21,7 @@ class _HistoryState extends State<History> {
   @override
   void initState() {
     super.initState();
-    getRecipesFromFB();
+    //getRecipesFromFB();
   }
 
   Future<void> getRecipesFromFB() async {
@@ -29,11 +29,11 @@ class _HistoryState extends State<History> {
     CollectionReference recepies = _instance.collection("public");
     DocumentSnapshot snapshot = await recepies.doc("history").get();
     //var data = snapshot.data() as Map;
-    const yourData = await _instance.forEach((element) {
-      Recipe x =
-          Recipe(name: element(), images: "sdf", rating: 1, totalTime: "dsf");
-      _recipes.add(x);
-    });
+    //const yourData = await _instance.forEach((element) {
+    //  Recipe x =
+    //      Recipe(name: element(), images: "sdf", rating: 1, totalTime: "dsf");
+    //  _recipes.add(x);
+    //});
   }
 
   result() {
