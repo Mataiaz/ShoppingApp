@@ -21,15 +21,19 @@ class _HistoryState extends State<History> {
   @override
   void initState() {
     super.initState();
-    getRecipes();
+    getRecipesFromFB();
   }
 
-  Future<void> getRecipes() async {
-    _recipes = await RecipeApi.getRecipe();
-    setState(() {
-      _isLoading = false;
+  Future<void> getRecipesFromFB() async {
+    var _instance = FirebaseFirestore.instance;
+    CollectionReference recepies = _instance.collection("public");
+    DocumentSnapshot snapshot = await recepies.doc("history").get();
+    //var data = snapshot.data() as Map;
+    const yourData = await _instance.forEach((element) {
+      Recipe x =
+          Recipe(name: element(), images: "sdf", rating: 1, totalTime: "dsf");
+      _recipes.add(x);
     });
-    //print(_recipes);
   }
 
   result() {
@@ -48,36 +52,36 @@ class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Text('History          '),
+        appBar: AppBar(
+          title: Center(
+            child: Text('History          '),
+          ),
         ),
-      ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("public").snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) {
-            return Text("No value");
-          }
-          return ListView(
-            children: snapshot.data.docs.map((document) {
-              return Text(document['title']);
-            }).toList(),
-          );
-        },
-      ),
-    );
-    // body: _isLoading
-    //     ? Center(child: CircularProgressIndicator())
-    //     : ListView.builder(
-    //         itemCount: _recipes.length,
-    //         itemBuilder: (context, index) {
-    //           return RecipeCard(
-    //               title: _recipes[index].name,
-    //               cookTime: _recipes[index].totalTime,
-    //               rating: _recipes[index].rating.toString(),
-    //               thumbnailUrl: _recipes[index].images);
-    //         },
-    //       ));
+        //   body: StreamBuilder(
+        //     stream: FirebaseFirestore.instance.collection("public").snapshots(),
+        //     builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        //       if (!snapshot.hasData) {
+        //         return Text("No value");
+        //       }
+        //       return ListView(
+        //         children: snapshot.data.docs.map((document) {
+        //           return Text(document['title']);
+        //         }).toList(),
+        //       );
+        //     },
+        //   ),
+        // );
+        body: _isLoading
+            ? Center(child: CircularProgressIndicator())
+            : ListView.builder(
+                itemCount: _recipes.length,
+                itemBuilder: (context, index) {
+                  return RecipeCard(
+                      title: _recipes[index].name,
+                      cookTime: _recipes[index].totalTime,
+                      rating: _recipes[index].rating.toString(),
+                      thumbnailUrl: _recipes[index].images);
+                },
+              ));
   }
 }

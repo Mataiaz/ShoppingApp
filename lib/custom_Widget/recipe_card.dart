@@ -17,9 +17,10 @@ class RecipeCard extends StatelessWidget {
     };
     FirebaseFirestore.instance
         .collection('public')
-        //.add({'timeStamp': Timestamp.fromDate(DateTime.now())});
-        .add(data);
+        .doc(data['title'].toString())
+        .set(data);
     print('Someone clicked the button');
+    //print(data['title'].toString());
   }
 
   RecipeCard({
