@@ -11,16 +11,18 @@ class RecipeCard extends StatelessWidget {
   result() {
     Map<String, dynamic> data = {
       "title": title,
-      "rating": cookTime,
-      "cookTime": rating,
+      "rating": rating,
+      "cookTime": cookTime,
       "thumbnailUrl": thumbnailUrl
     };
+    //Map<String, dynamic> dataOld = FirebaseFirestore.instance.collection('public').doc('history') as Map;
+
     FirebaseFirestore.instance
         .collection('public')
-        .doc(data['title'].toString())
+        .doc(data['title'])
         .set(data);
     print('Someone clicked the button');
-    //print(data['title'].toString());
+    //print(dataOld);
   }
 
   RecipeCard({
