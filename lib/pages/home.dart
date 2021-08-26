@@ -70,55 +70,6 @@ class _HomeState extends State<Home> {
             color: bnColor,
           ),
         ),
-        //   body: SafeArea(
-        //     child: ListView(
-        //       children: <Widget>[
-        //         Container(
-        //           width: MediaQuery.of(context).size.height,
-        //           /*child: Image.asset('assets/558174.jpg',
-        //         fit: BoxFit.fill,
-        //         ),*/
-        //         ),
-        //         Column(
-        //           children: [
-        //             RecipeCard(
-        //               title: 'Chicken wings',
-        //               rating: '5.0',
-        //               cookTime: '5 min',
-        //               buy: result,
-        //               thumbnailUrl:
-        //                   'http://www.todayifoundout.com/wp-content/uploads/2013/02/buffalo-wings.jpg',
-        //             ),
-        //           ],
-        //         ),
-        //         RecipeCard(
-        //           title: 'Chicken wings?',
-        //           rating: '3.2',
-        //           cookTime: '45 min',
-        //           buy: result,
-        //           thumbnailUrl:
-        //               'http://www.todayifoundout.com/wp-content/uploads/2013/02/buffalo-wings.jpg',
-        //         ),
-        //         RecipeCard(
-        //           title: 'Wings of the chickens',
-        //           rating: '4.2',
-        //           cookTime: '20 min',
-        //           buy: result,
-        //           thumbnailUrl:
-        //               'http://www.todayifoundout.com/wp-content/uploads/2013/02/buffalo-wings.jpg',
-        //         ),
-        //         RecipeCard(
-        //           title: 'Vegan chicken wings',
-        //           rating: '4.0',
-        //           cookTime: '30 min',
-        //           buy: result,
-        //           thumbnailUrl:
-        //               'http://www.todayifoundout.com/wp-content/uploads/2013/02/buffalo-wings.jpg',
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // );
         body: _isLoading
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
