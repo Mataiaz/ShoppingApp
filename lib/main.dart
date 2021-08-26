@@ -6,6 +6,7 @@ import 'package:shopping_app/pages/checkout.dart';
 import 'package:shopping_app/help_page/help.dart';
 import 'package:shopping_app/pages/history.dart';
 import 'package:shopping_app/pages/settings.dart';
+import 'package:shopping_app/pages/log_in.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ void main() async {
       '/settings': (context) => SettingsPhone(),
       '/checkout': (context) => Checkout(),
       '/history': (context) => History(),
+      '/log_inn': (context) => LogIn(),
     },
   ));
 }

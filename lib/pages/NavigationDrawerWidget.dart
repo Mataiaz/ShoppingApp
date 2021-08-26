@@ -74,6 +74,17 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                     ),
                   ),
                   Text('Settings'),
+                  SizedBox(height: 60),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/log_inn');
+                    },
+                    icon: Icon(
+                      Icons.login,
+                      color: bnColor,
+                    ),
+                  ),
+                  Text('Log_Inn'),
                 ],
               ),
             ),
