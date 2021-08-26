@@ -24,6 +24,7 @@ class RecipeCard extends StatelessWidget {
         //.doc(data['title'])
         .doc(auth.currentUser.uid)
         .set(data);
+
     print('Someone clicked the button');
     //print(dataOld);
   }

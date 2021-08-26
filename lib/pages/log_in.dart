@@ -82,12 +82,18 @@ class _LogInState extends State<LogIn> {
             TextField(
               controller: myControllerEmail,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: "email"),
+                border: OutlineInputBorder(),
+                labelText: "email",
+                //prefixText: "barry.allen@example.com"
+              ),
             ),
             TextField(
               controller: myControllerPass,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: "Password"),
+                border: OutlineInputBorder(),
+                labelText: "Password",
+                //prefixText: "SuperSecretPassword!"
+              ),
             ),
             Column(
               children: [
