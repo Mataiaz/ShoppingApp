@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -17,10 +18,13 @@ class RecipeCard extends StatelessWidget {
     };
     //Map<String, dynamic> dataOld = FirebaseFirestore.instance.collection('public').doc('history') as Map;
 
+    FirebaseAuth auth = FirebaseAuth.instance;
     FirebaseFirestore.instance
-        .collection('public')
-        .doc(data['title'])
+        .collection('favorites')
+        //.doc(data['title'])
+        .doc(auth.currentUser.uid.toString() + data["title"])
         .set(data);
+
     print('Someone clicked the button');
     //print(dataOld);
   }
