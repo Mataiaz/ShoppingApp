@@ -20,9 +20,9 @@ class RecipeCard extends StatelessWidget {
 
     FirebaseAuth auth = FirebaseAuth.instance;
     FirebaseFirestore.instance
-        .collection('public')
+        .collection('favorites')
         //.doc(data['title'])
-        .doc(auth.currentUser.uid)
+        .doc(auth.currentUser.uid.toString() + data["title"])
         .set(data);
 
     print('Someone clicked the button');

@@ -34,7 +34,20 @@ class _LogInState extends State<LogIn> {
   }
 
   void signInAnon() async {
-    userCredential = await FirebaseAuth.instance.signInAnonymously();
+    //userCredential = await FirebaseAuth.instance.signInAnonymously();
+    //userCredential = await auth.signInAnonymously();
+    //auth = userCredential.credential;
+    try {
+      userCredential = await FirebaseAuth.instance.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('1');
+      } else if (e.code == 'email-already-in-use') {
+        print('2');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   void registration(String _email, String _password) async {
@@ -79,6 +92,8 @@ class _LogInState extends State<LogIn> {
         body: Column(
           children: [
             Text(status),
+            SelectableText("barry.allen@example.com"),
+            SelectableText("SuperSecretPassword!"),
             TextField(
               controller: myControllerEmail,
               decoration: InputDecoration(
@@ -109,6 +124,17 @@ class _LogInState extends State<LogIn> {
                           myControllerPass.text.toString());
                     },
                     child: Text("Log in")),
+                RaisedButton(
+                    onPressed:
+                        // "barry.allen@example.com"
+                        // "SuperSecretPassword!"
+                        // myControllerEmail.text == "" ||
+                        //         myControllerPass.text == ""
+                        //     ? null:
+                        () {
+                      signInAnon();
+                    },
+                    child: Text("Log in Ano")),
                 RaisedButton(
                     onPressed:
                         // myControllerEmail.text == "" ||
